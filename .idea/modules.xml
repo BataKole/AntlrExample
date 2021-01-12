@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AntlrExample.iml" filepath="$PROJECT_DIR$/AntlrExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AntlrExampleAction/AntlrExampleAction.iml" filepath="$PROJECT_DIR$/AntlrExampleAction/AntlrExampleAction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AntlrExampleVisitor/AntlrExampleVisitor.iml" filepath="$PROJECT_DIR$/AntlrExampleVisitor/AntlrExampleVisitor.iml" />
+    </modules>
+  </component>
+</project>
