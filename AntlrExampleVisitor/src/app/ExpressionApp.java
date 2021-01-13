@@ -4,6 +4,7 @@ import antlr.ExprLexer;
 import antlr.ExprParser;
 import expression.AntlrToProgram;
 import expression.ExpressionProcessor;
+import expression.MyErrorListener;
 import expression.Program;
 import org.antlr.v4.codegen.model.SrcOp;
 import org.antlr.v4.runtime.CharStream;
@@ -17,11 +18,6 @@ public class ExpressionApp {
 
     public static void main(String[] args) {
         if(args.length != 1) {
-            System.err.println("args.length " + args.length);
-            for(String ar : args) {
-                System.err.println(ar);
-            }
-
             System.err.print("Usage: file name");
         }
         else {
@@ -31,20 +27,29 @@ public class ExpressionApp {
             // tell ANTLR to build a parse tree
             // parse from the start symbol 'prog'
             ParseTree antlrAST = parser.prog();
-            // Create a visitor for converting the parse tree into Program/Expression object
-            AntlrToProgram progVisitor = new AntlrToProgram();
-            Program prog = progVisitor.visit(antlrAST);
 
-            if(progVisitor.semanticErrors.isEmpty()) {
-                ExpressionProcessor ep = new ExpressionProcessor(prog.expressions);
-                for(String evaluation: ep.getEvaluationResult()) {
-                    System.out.println(evaluation);
-                }
-            } else {
-                for(String err : progVisitor.semanticErrors){
-                    System.out.println(err);
+            if(MyErrorListener.hasError) {
+                /* let the syntax error be reported */
+
+            }
+            else {
+                // Create a visitor for converting the parse tree into Program/Expression object
+                AntlrToProgram progVisitor = new AntlrToProgram();
+                Program prog = progVisitor.visit(antlrAST);
+
+                if(progVisitor.semanticErrors.isEmpty()) {
+                    ExpressionProcessor ep = new ExpressionProcessor(prog.expressions);
+                    for(String evaluation: ep.getEvaluationResult()) {
+                        System.out.println(evaluation);
+                    }
+                } else {
+                    for(String err : progVisitor.semanticErrors){
+                        System.out.println(err);
+                    }
                 }
             }
+
+
         }
     }
 
@@ -60,6 +65,10 @@ public class ExpressionApp {
             ExprLexer lexer = new ExprLexer(input);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             parser = new ExprParser(tokens);
+
+            // syntax error handling
+            parser.removeErrorListeners();
+            parser.addErrorListener(new MyErrorListener());
         } catch (IOException e) {
             e.printStackTrace();
         }
