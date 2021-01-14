@@ -3,3 +3,5 @@ i: INT = 5
 j = i + 23 : INT
 24 * k
 	i: INT = 9
+
+-- This test is designed to fail on syntax check in line 3: invalid declaration syntax

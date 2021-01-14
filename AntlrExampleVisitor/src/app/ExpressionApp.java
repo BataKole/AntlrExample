@@ -30,7 +30,6 @@ public class ExpressionApp {
 
             if(MyErrorListener.hasError) {
                 /* let the syntax error be reported */
-
             }
             else {
                 // Create a visitor for converting the parse tree into Program/Expression object

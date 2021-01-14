@@ -3,3 +3,5 @@ i: INT = 5
 i + 23
 24 * k
 	i: INT = 9
+
+-- This test is made to fail semantic check in line 2: variable i already declared
