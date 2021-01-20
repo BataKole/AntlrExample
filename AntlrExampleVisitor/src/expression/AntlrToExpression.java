@@ -65,6 +65,13 @@ public class AntlrToExpression extends ExprBaseVisitor<Expression> {
     }
 
     @Override
+    public Expression visitSubtraction(ExprParser.SubtractionContext ctx) {
+        Expression left = visit(ctx.getChild(0)); // recursively visit the left subtree of the current Addition node
+        Expression right = visit(ctx.getChild(2)); // recursively visit the right subtree of the current Addition node
+        return new Subtraction(left, right);
+    }
+
+    @Override
     public Expression visitVariable(ExprParser.VariableContext ctx) {
         Token idToken = ctx.ID().getSymbol();
         int line = idToken.getLine();

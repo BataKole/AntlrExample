@@ -48,6 +48,12 @@ public class ExpressionProcessor {
             int right = getEvalResult(add.right);
             result = left + right;
         }
+        else if(e instanceof Subtraction) {
+            Subtraction add = (Subtraction) e;
+            int left = getEvalResult(add.left);
+            int right = getEvalResult(add.right);
+            result = left - right;
+        }
         else { // e instance of Multiplication
             Multiplication mul = (Multiplication) e;
             int left = getEvalResult(mul.left);

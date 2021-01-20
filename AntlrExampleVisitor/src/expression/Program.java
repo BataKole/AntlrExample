@@ -13,6 +13,4 @@ public class Program {
     public void addExpression(Expression e){
         expressions.add(e);
     }
-
-
 }

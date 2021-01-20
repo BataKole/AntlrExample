@@ -1,6 +1,6 @@
 // Generated from Expr.g4 by ANTLR 4.9
 
-package antlr;
+    package antlr;
 
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -48,6 +48,13 @@ public class ExprBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements E
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitVariable(ExprParser.VariableContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitSubtraction(ExprParser.SubtractionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

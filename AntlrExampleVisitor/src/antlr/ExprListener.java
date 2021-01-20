@@ -70,6 +70,18 @@ public interface ExprListener extends ParseTreeListener {
 	 */
 	void exitVariable(ExprParser.VariableContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code Subtraction}
+	 * labeled alternative in {@link ExprParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterSubtraction(ExprParser.SubtractionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Subtraction}
+	 * labeled alternative in {@link ExprParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitSubtraction(ExprParser.SubtractionContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code Number}
 	 * labeled alternative in {@link ExprParser#expr}.
 	 * @param ctx the parse tree

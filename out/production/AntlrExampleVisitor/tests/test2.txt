@@ -5,4 +5,5 @@ j
 i + j
 i + j * 3
 i * j + 3
- 
+i * j + 3 * 65 + i
+-- This test is made to pass both syntax and semantic check so it can be evaluated

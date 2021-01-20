@@ -16,6 +16,7 @@ decl: ID ':' INT_TYPE '=' NUM   # Declaration
 /* Antlr resolves ambiguity in favor of alternative given first. */
 expr: expr '*' expr             # Multiplication
     | expr '+' expr             # Addition
+    | expr '-' expr             # Subtraction
     | ID                        # Variable
     | NUM                       # Number
     ;
